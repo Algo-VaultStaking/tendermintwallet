@@ -1,23 +1,23 @@
-# osmopy
+# comdexpy
 
-> Version 0.0.2
+> Version 0.0.1 (work in progress)
 
-> Tools for Osmosis wallet management and offline transaction signing
+> Tools for Comdex wallet management and offline transaction signing
 
 
 ## Installing
 
-#### Installing from PyPI [repository](https://pypi.org/project/osmopy):
+#### Installing from PyPI [repository](https://pypi.org/project/comdexpy):
 
 ```bash
-pip3 install osmopy
+pip3 install comdexpy
 ```
 
 #### Installing from source code:
 
 ```bash
-git clone https://github.com/bro-n-bro/osmopy
-cd cyberpy
+git clone https://github.com/algo-vaultstaking/comdexpy
+cd comdexpy
 pip3 install .
 ```
 
@@ -26,7 +26,7 @@ pip3 install .
 ### Generating a wallet
 
 ```python
-from osmopy import generate_wallet
+from comdexpy import generate_wallet
 wallet = generate_wallet()
 ```
 
@@ -38,7 +38,7 @@ The value assigned to `wallet` will be a dictionary just like:
     "derivation_path": "m/44'/118'/0'/0/0",
     "private_key": b'\xbb\xec^\xf6\xdcg\xe6\xb5\x89\xed\x8cG\x05\x03\xdf0:\xc9\x8b \x85\x8a\x14\x12\xd7\xa6a\x01\xcd\xf8\x88\x93',
     "public_key": b"\x03h\x1d\xae\xa7\x9eO\x8e\xc5\xff\xa3sAw\xe6\xdd\xc9\xb8b\x06\x0eo\xc5a%z\xe3\xff\x1e\xd2\x8e5\xe7",
-    "address": "bostrom1uuhna3psjqfxnw4msrfzsr0g08yuyfxesqggqd",
+    "address": "comdex1uuhna3psjqfxnw4msrfzsr0g08yuyfxesqggqd",
 }
  ```
 
@@ -47,7 +47,7 @@ The value assigned to `wallet` will be a dictionary just like:
 #### Mnemonic seed to private key
 
 ```python
-from osmopy import seed_to_privkey
+from comdexpy import seed_to_privkey
 seed = "teach there dream chase fatigue abandon lava super senior artefact close upgrade"
 privkey = seed_to_privkey(seed, path="m/44'/118'/0'/0/0")
  ```
@@ -55,7 +55,7 @@ privkey = seed_to_privkey(seed, path="m/44'/118'/0'/0/0")
 #### Private key to public key
 
 ```python
-from osmopy import privkey_to_pubkey
+from comdexpy import privkey_to_pubkey
 privkey = bytes.fromhex("6dcd05d7ac71e09d3cf7da666709ebd59362486ff9e99db0e8bc663570515afa")
 pubkey = privkey_to_pubkey(privkey)
  ```
@@ -63,7 +63,7 @@ pubkey = privkey_to_pubkey(privkey)
 #### Public key to address
 
 ```python
-from osmopy import pubkey_to_address
+from comdexpy import pubkey_to_address
 pubkey = bytes.fromhex("03e8005aad74da5a053602f86e3151d4f3214937863a11299c960c28d3609c4775")
 addr = pubkey_to_address(pubkey)
  ```
@@ -71,7 +71,7 @@ addr = pubkey_to_address(pubkey)
 #### Private key to address
 
 ```python
-from osmopy import privkey_to_address
+from comdexpy import privkey_to_address
 privkey = bytes.fromhex("6dcd05d7ac71e09d3cf7da666709ebd59362486ff9e99db0e8bc663570515afa")
 addr = privkey_to_address(privkey)
  ```
@@ -79,7 +79,7 @@ addr = privkey_to_address(privkey)
 #### Address to address
 
 ```python
-from osmopy import address_to_address
+from comdexpy import address_to_address
 addr = address_to_address(address, prefix)
  ```
 
@@ -88,7 +88,7 @@ addr = address_to_address(address, prefix)
 #### Send transaction
 
 ```python
-from osmopy import Transaction
+from comdexpy import Transaction
 tx = Transaction(
     privkey=bytes.fromhex("26d167d549a4b2b66f766b0d3f2bdbe1cd92708818c338ff453abde316a2bd59"),
     account_num=11335,
@@ -99,8 +99,8 @@ tx = Transaction(
     chain_id="bostrom-testnet-1",
     sync_mode="broadcast_tx_sync", # "broadcast_tx_sync", "broadcast_tx_async", "broadcast_tx_commit"
 )
-tx.add_transfer(recipient="osmo103l758ps7403sd9c0y8j6hrfw4xyl70j4mmwkf", amount=387000)
-tx.add_transfer(recipient="osmo1lzumfk6xvwf9k9rk72mqtztv867xyem393um48", amount=123)
+tx.add_transfer(recipient="comdex103l758ps7403sd9c0y8j6hrfw4xyl70j4mmwkf", amount=387000)
+tx.add_transfer(recipient="comdex1lzumfk6xvwf9k9rk72mqtztv867xyem393um48", amount=123)
 ```
 
 One or more token transfers can be added to a transaction by calling the `add_transfer` method.

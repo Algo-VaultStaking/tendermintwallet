@@ -4,14 +4,14 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    name='osmopy',
+    name='comdexpy',
     version='0.0.2',
-    packages=['osmopy', 'osmopy.interfaces'],
-    url='https://github.com/bro-n-bro/osmopy',
+    packages=['comdexpy', 'comdexpy.interfaces'],
+    url='https://github.com/algo-vaultstaking/comdexpy',
     license='MIT',
-    author='bro-n-bro-0',
+    author='AlgoRhythm',
     author_email='',
-    description='Tools for Osmosis wallet management, offline transaction signing and broadcasting',
+    description='Tools for Comdex wallet management, offline transaction signing and broadcasting',
     long_description=long_description,
     long_description_content_type="text/markdown",
     install_requires=[

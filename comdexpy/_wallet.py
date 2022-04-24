@@ -5,7 +5,7 @@ import ecdsa
 import hdwallets
 import mnemonic
 
-from osmopy._typing import Wallet
+from comdexpy._typing import Wallet
 
 DEFAULT_DERIVATION_PATH = "m/44'/118'/0'/0/0"
 
@@ -54,7 +54,7 @@ def pubkey_to_address(pubkey: bytes) -> str:
     r = hashlib.new("ripemd160", s).digest()
     five_bit_r = bech32.convertbits(r, 8, 5)
     assert five_bit_r is not None, "Unsuccessful bech32.convertbits call"
-    return bech32.bech32_encode('osmo', five_bit_r)
+    return bech32.bech32_encode('comdex', five_bit_r)
 
 def address_to_address(address: str, prefix: str) -> str:
     five_bit_r = bech32.bech32_decode(address)[1]

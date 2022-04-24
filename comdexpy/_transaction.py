@@ -4,23 +4,23 @@ import json
 import requests
 import ecdsa
 
-import osmopy.interfaces.tx_pb2 as tx
-import osmopy.interfaces.msg_send_pb2 as transfer
-import osmopy.interfaces.coin_pb2 as coin
-import osmopy.interfaces.pubkey_pb2 as pubkey
+import comdexpy.interfaces.tx_pb2 as tx
+import comdexpy.interfaces.msg_send_pb2 as transfer
+import comdexpy.interfaces.coin_pb2 as coin
+import comdexpy.interfaces.pubkey_pb2 as pubkey
 
-from osmopy.interfaces.any_pb2 import Any
-from osmopy._wallet import privkey_to_address, privkey_to_pubkey
-from osmopy._typing import SyncMode
+from comdexpy.interfaces.any_pb2 import Any
+from comdexpy._wallet import privkey_to_address, privkey_to_pubkey
+from comdexpy._typing import SyncMode
 
 
 class Transaction:
-    """A osmosis transaction.
+    """A Comdex transaction.
 
     After initialization, one or more messages can be added by
     calling the `add_transfer()` method. Then, call `get_pushable()`
     to get a signed transaction that can be pushed to the `POST /txs`
-    endpoint of the osmosis RPC or call `broadcast(url=<RPC_api>)` method
+    endpoint of the Comdex RPC or call `broadcast(url=<RPC_api>)` method
     to get signed transaction and broadcast it with RPC_API.
     """
 
@@ -32,9 +32,9 @@ class Transaction:
         sequence: int,
         fee: int,
         gas: int,
-        fee_denom: str = "uosmo",
+        fee_denom: str = "ucmdx",
         memo: str = "",
-        chain_id: str = "osmosis-1",
+        chain_id: str = "test-1",
         sync_mode: SyncMode = "broadcast_tx_commit",
     ) -> None:
         self._raw_tx = tx.TxRaw()
@@ -49,7 +49,7 @@ class Transaction:
         self._chain_id = chain_id
         self._sync_mode = sync_mode
 
-    def add_transfer(self, recipient: str, amount: int, denom: str = "uosmo") -> None:
+    def add_transfer(self, recipient: str, amount: int, denom: str = "ucmdx") -> None:
         msg_send = transfer.MsgSend()
         msg_send.from_address = privkey_to_address(self._privkey)
         msg_send.to_address = recipient

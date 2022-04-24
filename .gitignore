@@ -109,6 +109,6 @@ venv.bak/
 # A script that can be used for quick testing
 tester.py
 
-osmopy/.DS_Store
+comdexpy/.DS_Store
 
 .DS_Store
