@@ -4,14 +4,14 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    name='comdexpy',
-    version='0.0.2',
-    packages=['comdexpy', 'comdexpy.interfaces'],
-    url='https://github.com/algo-vaultstaking/comdexpy',
+    name='tendermintwallet',
+    version='0.0.1',
+    packages=['tendermintwallet', 'tendermintwallet.interfaces'],
+    url='https://github.com/algo-vaultstaking/tendermintwallet',
     license='MIT',
     author='AlgoRhythm',
     author_email='',
-    description='Tools for Comdex wallet management, offline transaction signing and broadcasting',
+    description='Tools for tendermint-based wallet management, offline transaction signing and broadcasting',
     long_description=long_description,
     long_description_content_type="text/markdown",
     install_requires=[

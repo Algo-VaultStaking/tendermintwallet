@@ -11,10 +11,10 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-import comdexpy.interfaces.gogo_pb2 as gogo__pb2
-import comdexpy.interfaces.coin_pb2 as coin__pb2
-import comdexpy.interfaces.signing_pb2 as signing__pb2
-import comdexpy.interfaces.any_pb2 as any__pb2
+import tendermintwallet.interfaces.gogo_pb2 as gogo__pb2
+import tendermintwallet.interfaces.coin_pb2 as coin__pb2
+import tendermintwallet.interfaces.signing_pb2 as signing__pb2
+import tendermintwallet.interfaces.any_pb2 as any__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(

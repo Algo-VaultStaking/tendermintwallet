@@ -109,6 +109,6 @@ venv.bak/
 # A script that can be used for quick testing
 tester.py
 
-comdexpy/.DS_Store
+tendermintwallet/.DS_Store
 
 .DS_Store

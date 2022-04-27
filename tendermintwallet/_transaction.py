@@ -4,18 +4,18 @@ import json
 import requests
 import ecdsa
 
-import comdexpy.interfaces.tx_pb2 as tx
-import comdexpy.interfaces.msg_send_pb2 as transfer
-import comdexpy.interfaces.coin_pb2 as coin
-import comdexpy.interfaces.pubkey_pb2 as pubkey
+import tendermintwallet.interfaces.tx_pb2 as tx
+import tendermintwallet.interfaces.msg_send_pb2 as transfer
+import tendermintwallet.interfaces.coin_pb2 as coin
+import tendermintwallet.interfaces.pubkey_pb2 as pubkey
 
-from comdexpy.interfaces.any_pb2 import Any
-from comdexpy._wallet import privkey_to_address, privkey_to_pubkey
-from comdexpy._typing import SyncMode
+from tendermintwallet.interfaces.any_pb2 import Any
+from tendermintwallet._wallet import privkey_to_address, privkey_to_pubkey
+from tendermintwallet._typing import SyncMode
 
 
 class Transaction:
-    """A Comdex transaction.
+    """A transaction.
 
     After initialization, one or more messages can be added by
     calling the `add_transfer()` method. Then, call `get_pushable()`
@@ -32,9 +32,9 @@ class Transaction:
         sequence: int,
         fee: int,
         gas: int,
-        fee_denom: str = "ucmdx",
+        fee_denom: str,
         memo: str = "",
-        chain_id: str = "test-1",
+        chain_id: str,
         sync_mode: SyncMode = "broadcast_tx_commit",
     ) -> None:
         self._raw_tx = tx.TxRaw()
@@ -49,7 +49,7 @@ class Transaction:
         self._chain_id = chain_id
         self._sync_mode = sync_mode
 
-    def add_transfer(self, recipient: str, amount: int, denom: str = "ucmdx") -> None:
+    def add_transfer(self, recipient: str, amount: int, denom: str) -> None:
         msg_send = transfer.MsgSend()
         msg_send.from_address = privkey_to_address(self._privkey)
         msg_send.to_address = recipient
