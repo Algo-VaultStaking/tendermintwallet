@@ -1,16 +1,16 @@
 # tendermintwallet
 
-> Version 0.0.1
+> Version 0.0.2
 
 > Tools for Tendermint-based wallet management, offline transaction signing, and broadcast through an RPC.
 
 
 ## Installing
 
-#### Installing from PyPI Coming Soon [repository](https://pypi.org/project/comdexpy):
+#### Installing from PyPI [repository](https://pypi.org/project/tendermintwallet):
 
 ```bash
-# pip3 install TendermintWallet
+pip3 install tendermintwallet
 ```
 
 #### Installing from source code:

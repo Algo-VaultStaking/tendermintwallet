@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='tendermintwallet',
-    version='0.0.1',
+    version='0.0.2',
     packages=['tendermintwallet', 'tendermintwallet.interfaces'],
     url='https://github.com/algo-vaultstaking/tendermintwallet',
     license='MIT',
@@ -20,7 +20,9 @@ setup(
         'hdwallets',
         'mnemonic',
         'typing-extensions',
-        'requests'
+        'requests',
+        'google',
+        'protobuf'
       ],
     zip_safe=False,
 )

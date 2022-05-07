@@ -49,9 +49,9 @@ class Transaction:
         self._chain_id = chain_id
         self._sync_mode = sync_mode
 
-    def add_transfer(self, recipient: str, amount: int, denom: str) -> None:
+    def add_transfer(self, recipient: str, amount: int, denom: str, chain="cosmos") -> None:
         msg_send = transfer.MsgSend()
-        msg_send.from_address = privkey_to_address(self._privkey)
+        msg_send.from_address = privkey_to_address(self._privkey, chain)
         msg_send.to_address = recipient
         _amount = coin.Coin()
         _amount.denom = denom
